@@ -1,196 +1,143 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { AgLabsLogo } from "@/components/AgLabsLogo";
-import {
-  Menu,
-  X,
-  Brain,
-  Bot,
-  Zap,
-  BarChart3,
-  Database,
-  Network,
-  MessageSquare,
-  TrendingUp,
-  HeadphonesIcon,
-  Shuffle,
-  Layers,
-  ArrowRight,
-  CheckCircle2,
-  ChevronRight,
-} from "lucide-react";
+import * as React from "react"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Menu, X, ChevronRight, Brain, Bot, Zap, BarChart3, Network, Layers, TrendingUp, MessageSquare, HeadphonesIcon, CheckCircle2 } from "lucide-react"
 
 const menuItems = [
   { name: "Pilares", href: "#pilares" },
   { name: "Como Funciona", href: "#processo" },
   { name: "Produtos", href: "#produtos" },
   { name: "Contato", href: "#contato" },
-];
+]
 
 const pillars = [
   {
     icon: Brain,
     title: "Infraestrutura de IA",
-    color: "from-violet-500 to-indigo-600",
-    bgLight: "bg-violet-50",
-    borderColor: "border-violet-100",
     items: ["Arquitetura", "Banco de dados", "Orquestração"],
   },
   {
     icon: Bot,
     title: "Agentes Inteligentes",
-    color: "from-blue-500 to-cyan-600",
-    bgLight: "bg-blue-50",
-    borderColor: "border-blue-100",
     items: ["Atendimento", "Vendas", "Suporte"],
   },
   {
     icon: Zap,
     title: "Automação",
-    color: "from-amber-500 to-orange-600",
-    bgLight: "bg-amber-50",
-    borderColor: "border-amber-100",
     items: ["Processos internos", "Integração de sistemas"],
   },
   {
     icon: BarChart3,
     title: "Produtos & SaaS",
-    color: "from-emerald-500 to-teal-600",
-    bgLight: "bg-emerald-50",
-    borderColor: "border-emerald-100",
     items: ["Barber PRO", "APP AG LABS (mídia generativa)"],
   },
-];
+]
 
 const steps = [
   {
     number: "01",
     icon: Brain,
     title: "Diagnóstico do negócio",
-    description:
-      "Mapeamos seus processos, gargalos e oportunidades de automação para entender onde a IA gera mais valor.",
-    color: "text-violet-600",
-    bgColor: "bg-violet-50 dark:bg-violet-950/40",
-    borderColor: "border-violet-200 dark:border-violet-800",
+    description: "Mapeamos seus processos, gargalos e oportunidades de automação para identificar onde a IA gera mais valor.",
   },
   {
     number: "02",
     icon: Network,
     title: "Arquitetura da solução",
-    description:
-      "Desenhamos a arquitetura técnica ideal: modelos, fluxos de dados, integrações e infraestrutura escalável.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50 dark:bg-blue-950/40",
-    borderColor: "border-blue-200 dark:border-blue-800",
+    description: "Desenhamos a arquitetura técnica ideal: modelos, fluxos de dados, integrações e infraestrutura escalável.",
   },
   {
     number: "03",
     icon: Layers,
     title: "Implementação",
-    description:
-      "Desenvolvemos e implantamos os sistemas com agilidade, testes rigorosos e foco em resultados mensuráveis.",
-    color: "text-amber-600",
-    bgColor: "bg-amber-50 dark:bg-amber-950/40",
-    borderColor: "border-amber-200 dark:border-amber-800",
+    description: "Desenvolvemos e implantamos os sistemas com agilidade, testes rigorosos e foco em resultados mensuráveis.",
   },
   {
     number: "04",
     icon: TrendingUp,
     title: "Operação e evolução",
-    description:
-      "Monitoramos continuamente, otimizamos modelos e evoluímos a solução conforme seu negócio cresce.",
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50 dark:bg-emerald-950/40",
-    borderColor: "border-emerald-200 dark:border-emerald-800",
+    description: "Monitoramos continuamente, otimizamos modelos e evoluímos a solução conforme seu negócio cresce.",
   },
-];
+]
 
-const products = [
-  {
-    title: "Barber PRO",
-    subtitle: "SaaS para barbearias",
-    description:
-      "Sistema completo de gestão para barbearias: agendamento inteligente, fidelização de clientes e automação de marketing.",
-    gradient: "from-violet-600 to-indigo-700",
-    features: ["Agendamento online", "Fidelização automatizada", "Relatórios IA"],
-    icon: "✂️",
-  },
-  {
-    title: "APP AG LABS",
-    subtitle: "Mídia generativa",
-    description:
-      "Plataforma de geração de conteúdo com IA: textos, imagens, vídeos e áudios para marketing e criação digital.",
-    gradient: "from-blue-600 to-cyan-700",
-    features: ["Geração de conteúdo", "Multi-formato", "API-first"],
-    icon: "🎨",
-  },
-];
+const Logo = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("flex items-center gap-2.5", className)}>
+      <svg
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-7 w-auto"
+      >
+        <rect width="32" height="32" rx="8" fill="url(#ag-gradient)" />
+        <path
+          d="M8 22L12 10L16 18L20 10L24 22"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="16" cy="14" r="2" fill="white" fillOpacity="0.6" />
+        <defs>
+          <linearGradient id="ag-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#7C3AED" />
+            <stop offset="1" stopColor="#4F46E5" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span className="font-semibold text-lg tracking-tight text-foreground">
+        AG <span className="text-zinc-400 dark:text-zinc-500">LABS</span>
+      </span>
+    </div>
+  )
+}
 
 export default function Home() {
-  const [menuState, setMenuState] = React.useState(false);
+  const [menuState, setMenuState] = React.useState(false)
 
-  const handleNavClick = (href: string) => {
-    setMenuState(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const handleNav = (href: string) => {
+    setMenuState(false)
+    const el = document.querySelector(href)
+    if (el) el.scrollIntoView({ behavior: "smooth" })
+  }
 
   return (
-    <div className="relative overflow-x-hidden">
-      {/* NAV */}
-      <header className="fixed top-0 left-0 right-0 z-50">
+    <div>
+      {/* ── NAV (exact hero-section-9 structure) ── */}
+      <header>
         <nav
           data-state={menuState ? "active" : undefined}
-          className="group w-full border-b border-border/60 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60"
+          className="group fixed z-20 w-full border-b border-dashed bg-white backdrop-blur md:relative dark:bg-zinc-950/50 lg:dark:bg-transparent"
         >
-          <div className="m-auto max-w-6xl px-6">
-            <div className="flex flex-wrap items-center justify-between gap-6 py-4 lg:gap-0">
+          <div className="m-auto max-w-5xl px-6">
+            <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
               <div className="flex w-full justify-between lg:w-auto">
-                <a href="/" aria-label="AG LABS home" className="flex items-center">
-                  <AgLabsLogo />
+                <a href="/" aria-label="AG LABS home" className="flex items-center space-x-2">
+                  <Logo />
                 </a>
+
                 <button
                   onClick={() => setMenuState(!menuState)}
                   aria-label={menuState ? "Fechar menu" : "Abrir menu"}
                   className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
                   data-testid="button-mobile-menu"
                 >
-                  <Menu
-                    className={cn(
-                      "m-auto size-6 transition-all duration-200",
-                      menuState && "rotate-180 scale-0 opacity-0"
-                    )}
-                  />
-                  <X
-                    className={cn(
-                      "absolute inset-0 m-auto size-6 transition-all duration-200",
-                      menuState
-                        ? "rotate-0 scale-100 opacity-100"
-                        : "-rotate-180 scale-0 opacity-0"
-                    )}
-                  />
+                  <Menu className="group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
+                  <X className="group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
                 </button>
               </div>
 
-              <div
-                className={cn(
-                  "bg-background mb-6 w-full flex-wrap items-center justify-end space-y-8 rounded-2xl border p-6 shadow-lg md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none",
-                  menuState ? "flex" : "hidden lg:flex"
-                )}
-              >
+              <div className="bg-background group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
                 <div className="lg:pr-4">
                   <ul className="space-y-6 text-base lg:flex lg:gap-8 lg:space-y-0 lg:text-sm">
                     {menuItems.map((item, index) => (
                       <li key={index}>
                         <button
-                          onClick={() => handleNavClick(item.href)}
-                          className="text-muted-foreground hover:text-foreground block duration-150 font-medium"
-                          data-testid={`nav-link-${item.name.toLowerCase()}`}
+                          onClick={() => handleNav(item.href)}
+                          className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                          data-testid={`nav-link-${index}`}
                         >
-                          {item.name}
+                          <span>{item.name}</span>
                         </button>
                       </li>
                     ))}
@@ -199,13 +146,19 @@ export default function Home() {
 
                 <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
                   <Button
-                    variant="default"
+                    variant="outline"
                     size="sm"
-                    onClick={() => handleNavClick("#contato")}
-                    data-testid="button-cta-nav"
-                    className="bg-violet-600 hover:bg-violet-700 text-white border-0"
+                    onClick={() => handleNav("#contato")}
+                    data-testid="button-nav-contact"
                   >
-                    Falar com especialista
+                    <span>Contato</span>
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={() => handleNav("#contato")}
+                    data-testid="button-nav-cta"
+                  >
+                    <span>Falar com especialista</span>
                   </Button>
                 </div>
               </div>
@@ -214,163 +167,172 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* HERO */}
       <main>
-        {/* Background glow */}
+        {/* ── BACKGROUND BLOBS (exact hero-section-9 structure) ── */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+          className="z-[2] absolute inset-0 pointer-events-none isolate opacity-50 contain-strict hidden lg:block"
         >
-          <div className="absolute -top-40 -left-40 w-[60rem] h-[60rem] rounded-full bg-violet-600/10 blur-[120px]" />
-          <div className="absolute top-20 right-0 w-[40rem] h-[40rem] rounded-full bg-blue-600/8 blur-[100px]" />
+          <div className="w-[35rem] h-[80rem] -translate-y-87.5 absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
+          <div className="h-[80rem] absolute left-0 top-0 w-56 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
+          <div className="h-[80rem] -translate-y-87.5 absolute left-0 top-0 w-56 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
         </div>
 
-        <section className="relative overflow-hidden bg-background pt-32 pb-20 lg:pt-36 lg:pb-28">
-          <div className="relative z-10 mx-auto max-w-6xl px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-violet-50 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-800 px-4 py-1.5 text-sm font-medium text-violet-700 dark:text-violet-300 mb-8">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-600" />
-                </span>
-                Agência de Inteligência Artificial
-              </div>
-
-              <h1 className="text-balance text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl xl:text-7xl font-serif">
-                Sistemas de IA que{" "}
-                <span className="bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
-                  automatizam, escalam
-                </span>{" "}
-                e operam negócios
+        {/* ── HERO SECTION (exact hero-section-9 structure) ── */}
+        <section className="overflow-hidden bg-white dark:bg-transparent">
+          <div className="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
+            <div className="relative z-10 mx-auto max-w-2xl text-center">
+              <h1 className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">
+                Sistemas de IA que automatizam, escalam e operam negócios
               </h1>
-
-              <p className="mx-auto mt-8 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-                Automações, agentes inteligentes, SaaS e sistemas sob medida para empresas
-                que querem crescer com eficiência.
+              <p className="mx-auto my-8 max-w-2xl text-xl text-muted-foreground">
+                Automações, agentes inteligentes, SaaS e sistemas sob medida para empresas que querem crescer com eficiência.
               </p>
 
-              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   size="lg"
-                  onClick={() => handleNavClick("#contato")}
-                  data-testid="button-hero-cta-primary"
-                  className="bg-violet-600 hover:bg-violet-700 text-white border-0 px-8 h-12 text-base font-semibold rounded-xl shadow-lg shadow-violet-500/30"
+                  onClick={() => handleNav("#contato")}
+                  data-testid="button-hero-primary"
                 >
-                  Falar com especialista
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <span>Falar com especialista</span>
                 </Button>
                 <Button
+                  size="lg"
                   variant="outline"
-                  size="lg"
-                  onClick={() => handleNavClick("#pilares")}
-                  data-testid="button-hero-cta-secondary"
-                  className="h-12 px-8 text-base rounded-xl"
+                  onClick={() => handleNav("#pilares")}
+                  data-testid="button-hero-secondary"
                 >
-                  Ver como funciona
+                  <span>Ver como funciona</span>
                 </Button>
-              </div>
-
-              {/* Social proof */}
-              <div className="mt-12 flex items-center justify-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>Implementações em produção</span>
-                </div>
-                <div className="hidden sm:flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>Suporte contínuo</span>
-                </div>
-                <div className="hidden md:flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                  <span>Resultados mensuráveis</span>
-                </div>
               </div>
             </div>
           </div>
 
-          {/* Hero visual */}
-          <div className="relative z-10 mx-auto mt-20 max-w-6xl px-6">
-            <div className="relative rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm shadow-2xl overflow-hidden">
-              <div className="p-8 bg-gradient-to-br from-violet-950 via-indigo-950 to-blue-950 min-h-[320px] flex items-center justify-center">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-3xl">
-                  {[
-                    { icon: Brain, label: "IA Infrastructure", value: "100%", color: "text-violet-400" },
-                    { icon: Bot, label: "Active Agents", value: "24/7", color: "text-blue-400" },
-                    { icon: Zap, label: "Automations", value: "∞", color: "text-amber-400" },
-                    { icon: TrendingUp, label: "Growth", value: "+300%", color: "text-emerald-400" },
-                  ].map((stat, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
-                      data-testid={`stat-card-${i}`}
-                    >
-                      <stat.icon className={cn("w-6 h-6", stat.color)} />
-                      <span className={cn("text-2xl font-bold font-serif", stat.color)}>
-                        {stat.value}
-                      </span>
-                      <span className="text-xs text-white/50 text-center">{stat.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Terminal-like bottom bar */}
-              <div className="px-6 py-3 bg-zinc-950 border-t border-white/5 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                </div>
-                <span className="text-xs text-white/30 ml-2 font-mono">
-                  ag-labs-core — production environment
-                </span>
-                <div className="ml-auto flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-xs text-emerald-400/70 font-mono">running</span>
+          {/* ── PERSPECTIVE IMAGE (exact hero-section-9 structure) ── */}
+          <div className="mx-auto -mt-16 max-w-7xl [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]">
+            <div className="[perspective:1200px] [mask-image:linear-gradient(to_right,black_50%,transparent_100%)] -mr-16 pl-16 lg:-mr-56 lg:pl-56">
+              <div className="[transform:rotateX(20deg)]">
+                <div className="lg:h-[44rem] relative skew-x-[.36rad]">
+                  <img
+                    className="rounded-[--radius] z-[2] relative border dark:hidden"
+                    src="https://tailark.com/_next/image?url=%2Fcard.png&w=3840&q=75"
+                    alt="AG LABS dashboard"
+                    width={2880}
+                    height={2074}
+                  />
+                  <img
+                    className="rounded-[--radius] z-[2] relative hidden border dark:block"
+                    src="https://tailark.com/_next/image?url=%2Fdark-card.webp&w=3840&q=75"
+                    alt="AG LABS dashboard dark"
+                    width={2880}
+                    height={2074}
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* PILLARS */}
-        <section id="pilares" className="relative z-10 bg-background py-24">
-          <div className="mx-auto max-w-6xl px-6">
+        {/* ── LOGOS / TECH STACK (exact hero-section-9 partners structure) ── */}
+        <section className="bg-background relative z-10 py-16">
+          <div className="m-auto max-w-5xl px-6">
+            <h2 className="text-center text-lg font-medium text-muted-foreground">
+              Tecnologias e parceiros que utilizamos
+            </h2>
+            <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
+              <img
+                className="h-5 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/openai.svg"
+                alt="OpenAI"
+                height="20"
+                width="auto"
+              />
+              <img
+                className="h-5 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                alt="NVIDIA"
+                height="20"
+                width="auto"
+              />
+              <img
+                className="h-4 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/github.svg"
+                alt="GitHub"
+                height="16"
+                width="auto"
+              />
+              <img
+                className="h-5 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/vercel.svg"
+                alt="Vercel"
+                height="20"
+                width="auto"
+              />
+              <img
+                className="h-5 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/zapier.svg"
+                alt="Zapier"
+                height="20"
+                width="auto"
+              />
+              <img
+                className="h-4 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/laravel.svg"
+                alt="Laravel"
+                height="16"
+                width="auto"
+              />
+              <img
+                className="h-5 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
+                alt="Lemon Squeezy"
+                height="20"
+                width="auto"
+              />
+              <img
+                className="h-4 w-fit dark:invert opacity-70 hover:opacity-100 transition-opacity"
+                src="https://html.tailus.io/blocks/customers/tailwindcss.svg"
+                alt="Tailwind CSS"
+                height="16"
+                width="auto"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ── 4 PILLARS ── */}
+        <section id="pilares" className="bg-background relative z-10 py-24 border-t border-dashed">
+          <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
-              <p className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-3">
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
                 O que fazemos
               </p>
-              <h2 className="text-3xl font-bold font-serif md:text-4xl">
+              <h2 className="text-3xl font-semibold md:text-4xl">
                 Construímos a infraestrutura de IA
-                <br />
-                <span className="text-muted-foreground font-normal">por trás de empresas modernas</span>
+                <br className="hidden sm:block" />
+                <span className="text-muted-foreground"> por trás de empresas modernas</span>
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px border border-dashed rounded-xl overflow-hidden">
               {pillars.map((pillar, index) => (
                 <div
                   key={index}
-                  className={cn(
-                    "group relative rounded-2xl border p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
-                    pillar.borderColor,
-                    "bg-card"
-                  )}
-                  data-testid={`pillar-card-${index}`}
+                  className="bg-background p-8 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors duration-200"
+                  data-testid={`pillar-${index}`}
                 >
-                  <div className={cn("inline-flex rounded-xl p-3 mb-5", pillar.bgLight)}>
-                    <div className={cn("rounded-lg bg-gradient-to-br p-2", pillar.color)}>
-                      <pillar.icon className="w-5 h-5 text-white" />
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800">
+                      <pillar.icon className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />
                     </div>
+                    <h3 className="font-semibold text-base">{pillar.title}</h3>
                   </div>
-
-                  <h3 className="text-xl font-bold font-serif mb-4">{pillar.title}</h3>
-
                   <ul className="space-y-2.5">
                     {pillar.items.map((item, i) => (
-                      <li key={i} className="flex items-center gap-2.5 text-muted-foreground">
-                        <ChevronRight className="w-4 h-4 text-violet-500 shrink-0" />
-                        <span className="text-sm">{item}</span>
+                      <li key={i} className="flex items-center gap-2 text-muted-foreground text-sm">
+                        <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                        {item}
                       </li>
                     ))}
                   </ul>
@@ -380,96 +342,95 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW IT WORKS */}
-        <section id="processo" className="relative py-24 bg-muted/30">
-          <div className="mx-auto max-w-6xl px-6">
+        {/* ── HOW IT WORKS ── */}
+        <section id="processo" className="bg-white dark:bg-zinc-950 relative z-10 py-24 border-t border-dashed">
+          <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
-              <p className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-3">
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
                 Como funciona
               </p>
-              <h2 className="text-3xl font-bold font-serif md:text-4xl">
+              <h2 className="text-3xl font-semibold md:text-4xl">
                 Do diagnóstico à operação
               </h2>
-              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+              <p className="mt-4 text-muted-foreground max-w-xl mx-auto text-base">
                 Um processo estruturado para entregar soluções de IA que realmente funcionam no seu negócio.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {steps.map((step, index) => (
-                <div key={index} className="relative" data-testid={`step-card-${index}`}>
-                  {/* Connector line */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-[calc(50%+2rem)] right-[-50%] h-px border-t border-dashed border-border z-0" />
-                  )}
+            <div className="relative">
+              {/* Connecting line */}
+              <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px border-t border-dashed border-border z-0" />
 
-                  <div
-                    className={cn(
-                      "relative z-10 rounded-2xl border p-6 h-full transition-all duration-300 hover:shadow-md",
-                      step.bgColor,
-                      step.borderColor
-                    )}
-                  >
-                    <div className="flex items-start justify-between mb-5">
-                      <div className={cn("rounded-xl p-2.5", "bg-white dark:bg-white/10")}>
-                        <step.icon className={cn("w-5 h-5", step.color)} />
-                      </div>
-                      <span className={cn("text-4xl font-black font-serif opacity-20", step.color)}>
-                        {step.number}
-                      </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {steps.map((step, index) => (
+                  <div key={index} className="relative z-10 text-center" data-testid={`step-${index}`}>
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full border border-dashed bg-background mx-auto mb-5">
+                      <step.icon className="w-6 h-6 text-foreground" />
                     </div>
-                    <h3 className="font-bold text-base mb-2 font-serif">{step.title}</h3>
+                    <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest mb-2 block">
+                      {step.number}
+                    </span>
+                    <h3 className="font-semibold text-base mb-2">{step.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {step.description}
                     </p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* PRODUCTS */}
-        <section id="produtos" className="relative py-24 bg-background">
-          <div className="mx-auto max-w-6xl px-6">
+        {/* ── PRODUCTS ── */}
+        <section id="produtos" className="bg-background relative z-10 py-24 border-t border-dashed">
+          <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
-              <p className="text-sm font-semibold text-violet-600 uppercase tracking-widest mb-3">
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
                 Produtos
               </p>
-              <h2 className="text-3xl font-bold font-serif md:text-4xl">
+              <h2 className="text-3xl font-semibold md:text-4xl">
                 SaaS desenvolvidos pela AG LABS
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {products.map((product, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  emoji: "✂️",
+                  title: "Barber PRO",
+                  subtitle: "SaaS para barbearias",
+                  description: "Sistema completo de gestão: agendamento inteligente, fidelização de clientes e automação de marketing com IA.",
+                  features: ["Agendamento online", "Fidelização automatizada", "Relatórios com IA"],
+                },
+                {
+                  emoji: "🎨",
+                  title: "APP AG LABS",
+                  subtitle: "Mídia generativa",
+                  description: "Plataforma de geração de conteúdo com IA: textos, imagens, vídeos e áudios para marketing e criação digital.",
+                  features: ["Geração de conteúdo", "Multi-formato", "API-first"],
+                },
+              ].map((product, index) => (
                 <div
                   key={index}
-                  className="group rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                  data-testid={`product-card-${index}`}
+                  className="border border-dashed rounded-xl p-8 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors duration-200"
+                  data-testid={`product-${index}`}
                 >
-                  <div className={cn("bg-gradient-to-br p-8 min-h-[200px] flex items-end", product.gradient)}>
-                    <div>
-                      <span className="text-4xl mb-3 block">{product.icon}</span>
-                      <h3 className="text-2xl font-bold text-white font-serif">{product.title}</h3>
-                      <p className="text-white/70 text-sm mt-1">{product.subtitle}</p>
-                    </div>
-                  </div>
-                  <div className="p-6 bg-card">
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                      {product.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.features.map((feature, i) => (
-                        <span
-                          key={i}
-                          className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full bg-muted text-muted-foreground font-medium"
-                        >
-                          <CheckCircle2 className="w-3 h-3 text-violet-500" />
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
+                  <span className="text-3xl mb-4 block">{product.emoji}</span>
+                  <h3 className="font-semibold text-xl mb-1">{product.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{product.subtitle}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                    {product.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {product.features.map((f, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full border border-dashed text-muted-foreground"
+                      >
+                        <CheckCircle2 className="w-3 h-3" />
+                        {f}
+                      </span>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -477,78 +438,69 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA / CONTACT */}
-        <section id="contato" className="relative py-24 bg-muted/30">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-violet-700 via-indigo-700 to-blue-700 p-12 md:p-16 text-center shadow-2xl">
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-white/20 blur-3xl -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-white/10 blur-3xl translate-x-1/2 translate-y-1/2" />
-              </div>
-
-              <div className="relative z-10">
-                <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-4">
-                  Pronto para começar?
-                </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-white font-serif mb-6">
-                  Vamos construir sua
-                  <br />
-                  infraestrutura de IA juntos
-                </h2>
-                <p className="text-white/70 max-w-lg mx-auto mb-10 leading-relaxed">
-                  Entre em contato e descubra como a AG LABS pode transformar seus processos com
-                  inteligência artificial sob medida para o seu negócio.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                    href="https://wa.me/5500000000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="button-contact-whatsapp"
-                    className="inline-flex items-center gap-2 bg-white text-violet-700 font-semibold px-8 py-3 rounded-xl hover:bg-white/90 transition-colors duration-200 text-sm shadow-lg"
-                  >
-                    <MessageSquare className="w-4 h-4" />
+        {/* ── CONTACT CTA ── */}
+        <section id="contato" className="bg-white dark:bg-zinc-950 relative z-10 py-24 border-t border-dashed">
+          <div className="m-auto max-w-5xl px-6">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-3xl font-semibold md:text-4xl mb-6">
+                Pronto para automatizar seu negócio?
+              </h2>
+              <p className="text-muted-foreground text-lg mb-10">
+                Entre em contato e descubra como a AG LABS pode transformar seus processos com inteligência artificial sob medida.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  size="lg"
+                  asChild
+                  data-testid="button-contact-whatsapp"
+                >
+                  <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+                    <MessageSquare className="w-4 h-4 mr-2" />
                     Falar no WhatsApp
                   </a>
-                  <a
-                    href="mailto:contato@aglabs.ai"
-                    data-testid="button-contact-email"
-                    className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-semibold px-8 py-3 rounded-xl hover:bg-white/20 transition-colors duration-200 text-sm"
-                  >
-                    <HeadphonesIcon className="w-4 h-4" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  data-testid="button-contact-email"
+                >
+                  <a href="mailto:contato@aglabs.ai">
+                    <HeadphonesIcon className="w-4 h-4 mr-2" />
                     Enviar email
                   </a>
-                </div>
+                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="bg-background border-t border-border py-12">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <AgLabsLogo />
-              <p className="text-sm text-muted-foreground text-center">
+        {/* ── FOOTER ── */}
+        <footer className="bg-background border-t border-dashed py-10">
+          <div className="m-auto max-w-5xl px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <Logo />
+              <p className="text-sm text-muted-foreground">
                 © {new Date().getFullYear()} AG LABS. Todos os direitos reservados.
               </p>
-              <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                <button onClick={() => handleNavClick("#pilares")} className="hover:text-foreground transition-colors">
-                  Pilares
-                </button>
-                <button onClick={() => handleNavClick("#processo")} className="hover:text-foreground transition-colors">
-                  Processo
-                </button>
-                <button onClick={() => handleNavClick("#contato")} className="hover:text-foreground transition-colors">
-                  Contato
-                </button>
-              </div>
+              <nav className="flex items-center gap-6 text-sm text-muted-foreground">
+                {menuItems.map((item, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      const el = document.querySelector(item.href)
+                      if (el) el.scrollIntoView({ behavior: "smooth" })
+                    }}
+                    className="hover:text-foreground transition-colors duration-150"
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </nav>
             </div>
           </div>
         </footer>
       </main>
     </div>
-  );
+  )
 }
