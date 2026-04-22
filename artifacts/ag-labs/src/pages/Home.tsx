@@ -4,32 +4,32 @@ import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronRight, Brain, Bot, Zap, BarChart3, Network, Layers, TrendingUp, MessageSquare, HeadphonesIcon, CheckCircle2 } from "lucide-react"
 
 const menuItems = [
-  { name: "Pilares", href: "#pilares" },
-  { name: "Como Funciona", href: "#processo" },
-  { name: "Produtos", href: "#produtos" },
-  { name: "Contato", href: "#contato" },
+  { name: "Features", href: "#pilares" },
+  { name: "Solution", href: "#processo" },
+  { name: "Pricing", href: "#produtos" },
+  { name: "About", href: "#contato" },
 ]
 
 const pillars = [
   {
     icon: Brain,
-    title: "Infraestrutura de IA",
-    items: ["Arquitetura", "Banco de dados", "Orquestração"],
+    title: "Feature one",
+    items: ["Lorem ipsum dolor", "Sit amet consectetur", "Adipiscing elit sed"],
   },
   {
     icon: Bot,
-    title: "Agentes Inteligentes",
-    items: ["Atendimento", "Vendas", "Suporte"],
+    title: "Feature two",
+    items: ["Officiis laudantium", "Excepturi ducimus", "Rerum dignissimos"],
   },
   {
     icon: Zap,
-    title: "Automação",
-    items: ["Processos internos", "Integração de sistemas"],
+    title: "Feature three",
+    items: ["Tempora nam vitae", "Provident dolores"],
   },
   {
     icon: BarChart3,
-    title: "Produtos & SaaS",
-    items: ["Barber PRO", "APP AG LABS (mídia generativa)"],
+    title: "Feature four",
+    items: ["Iste provident", "Dolores laudantium"],
   },
 ]
 
@@ -37,26 +37,26 @@ const steps = [
   {
     number: "01",
     icon: Brain,
-    title: "Diagnóstico do negócio",
-    description: "Mapeamos seus processos, gargalos e oportunidades de automação para identificar onde a IA gera mais valor.",
+    title: "Step one",
+    description: "Officiis laudantium excepturi ducimus rerum dignissimos and tempora nam vitae.",
   },
   {
     number: "02",
     icon: Network,
-    title: "Arquitetura da solução",
-    description: "Desenhamos a arquitetura técnica ideal: modelos, fluxos de dados, integrações e infraestrutura escalável.",
+    title: "Step two",
+    description: "Excepturi ducimus iste provident dolores rerum dignissimos tempora nam vitae.",
   },
   {
     number: "03",
     icon: Layers,
-    title: "Implementação",
-    description: "Desenvolvemos e implantamos os sistemas com agilidade, testes rigorosos e foco em resultados mensuráveis.",
+    title: "Step three",
+    description: "Tempora nam vitae officiis laudantium excepturi ducimus rerum dignissimos.",
   },
   {
     number: "04",
     icon: TrendingUp,
-    title: "Operação e evolução",
-    description: "Monitoramos continuamente, otimizamos modelos e evoluímos a solução conforme seu negócio cresce.",
+    title: "Step four",
+    description: "Rerum dignissimos officiis laudantium excepturi ducimus iste provident.",
   },
 ]
 
@@ -86,7 +86,7 @@ const Logo = ({ className }: { className?: string }) => {
         </defs>
       </svg>
       <span className="font-semibold text-lg tracking-tight text-foreground">
-        AG <span className="text-zinc-400 dark:text-zinc-500">LABS</span>
+        Your <span className="text-zinc-400 dark:text-zinc-500">Brand</span>
       </span>
     </div>
   )
@@ -112,13 +112,13 @@ export default function Home() {
           <div className="m-auto max-w-5xl px-6">
             <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
               <div className="flex w-full justify-between lg:w-auto">
-                <a href="/" aria-label="AG LABS home" className="flex items-center space-x-2">
+                <a href="/" aria-label="home" className="flex items-center space-x-2">
                   <Logo />
                 </a>
 
                 <button
                   onClick={() => setMenuState(!menuState)}
-                  aria-label={menuState ? "Fechar menu" : "Abrir menu"}
+                  aria-label={menuState ? "Close Menu" : "Open Menu"}
                   className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
                   data-testid="button-mobile-menu"
                 >
@@ -151,14 +151,14 @@ export default function Home() {
                     onClick={() => handleNav("#contato")}
                     data-testid="button-nav-contact"
                   >
-                    <span>Contato</span>
+                    <span>Login</span>
                   </Button>
                   <Button
                     size="sm"
                     onClick={() => handleNav("#contato")}
                     data-testid="button-nav-cta"
                   >
-                    <span>Falar com especialista</span>
+                    <span>Sign up</span>
                   </Button>
                 </div>
               </div>
@@ -183,10 +183,10 @@ export default function Home() {
           <div className="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
             <div className="relative z-10 mx-auto max-w-2xl text-center">
               <h1 className="text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">
-                Sistemas de IA que automatizam, escalam e operam negócios
+                Modern software testing reimagined
               </h1>
               <p className="mx-auto my-8 max-w-2xl text-xl text-muted-foreground">
-                Automações, agentes inteligentes, SaaS e sistemas sob medida para empresas que querem crescer com eficiência.
+                Officiis laudantium excepturi ducimus rerum dignissimos, and tempora nam vitae, excepturi ducimus iste provident dolores.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -195,7 +195,7 @@ export default function Home() {
                   onClick={() => handleNav("#contato")}
                   data-testid="button-hero-primary"
                 >
-                  <span>Falar com especialista</span>
+                  <span>Start Building</span>
                 </Button>
                 <Button
                   size="lg"
@@ -203,7 +203,7 @@ export default function Home() {
                   onClick={() => handleNav("#pilares")}
                   data-testid="button-hero-secondary"
                 >
-                  <span>Ver como funciona</span>
+                  <span>Learn more</span>
                 </Button>
               </div>
             </div>
@@ -238,7 +238,7 @@ export default function Home() {
         <section className="bg-background relative z-10 py-16">
           <div className="m-auto max-w-5xl px-6">
             <h2 className="text-center text-lg font-medium text-muted-foreground">
-              Tecnologias e parceiros que utilizamos
+              Your favorite companies are our partners.
             </h2>
             <div className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8 sm:gap-x-16 sm:gap-y-12">
               <img
@@ -306,12 +306,12 @@ export default function Home() {
           <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
-                O que fazemos
+                What we do
               </p>
               <h2 className="text-3xl font-semibold md:text-4xl">
-                Construímos a infraestrutura de IA
+                Everything you need to build
                 <br className="hidden sm:block" />
-                <span className="text-muted-foreground"> por trás de empresas modernas</span>
+                <span className="text-muted-foreground"> better products, faster</span>
               </h2>
             </div>
 
@@ -347,13 +347,13 @@ export default function Home() {
           <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
-                Como funciona
+                How it works
               </p>
               <h2 className="text-3xl font-semibold md:text-4xl">
-                Do diagnóstico à operação
+                Simple, streamlined process
               </h2>
               <p className="mt-4 text-muted-foreground max-w-xl mx-auto text-base">
-                Um processo estruturado para entregar soluções de IA que realmente funcionam no seu negócio.
+                Officiis laudantium excepturi ducimus rerum dignissimos and tempora nam vitae excepturi ducimus.
               </p>
             </div>
 
@@ -386,28 +386,28 @@ export default function Home() {
           <div className="m-auto max-w-5xl px-6">
             <div className="text-center mb-16">
               <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3">
-                Produtos
+                Products
               </p>
               <h2 className="text-3xl font-semibold md:text-4xl">
-                SaaS desenvolvidos pela AG LABS
+                Built for teams that move fast
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  emoji: "✂️",
-                  title: "Barber PRO",
-                  subtitle: "SaaS para barbearias",
-                  description: "Sistema completo de gestão: agendamento inteligente, fidelização de clientes e automação de marketing com IA.",
-                  features: ["Agendamento online", "Fidelização automatizada", "Relatórios com IA"],
+                  emoji: "⚡",
+                  title: "Product one",
+                  subtitle: "Subtitle goes here",
+                  description: "Officiis laudantium excepturi ducimus rerum dignissimos, and tempora nam vitae, excepturi ducimus iste provident.",
+                  features: ["Feature alpha", "Feature beta", "Feature gamma"],
                 },
                 {
-                  emoji: "🎨",
-                  title: "APP AG LABS",
-                  subtitle: "Mídia generativa",
-                  description: "Plataforma de geração de conteúdo com IA: textos, imagens, vídeos e áudios para marketing e criação digital.",
-                  features: ["Geração de conteúdo", "Multi-formato", "API-first"],
+                  emoji: "🔮",
+                  title: "Product two",
+                  subtitle: "Subtitle goes here",
+                  description: "Tempora nam vitae officiis laudantium excepturi ducimus rerum dignissimos iste provident dolores sit amet.",
+                  features: ["Feature alpha", "Feature beta", "Feature gamma"],
                 },
               ].map((product, index) => (
                 <div
@@ -443,31 +443,31 @@ export default function Home() {
           <div className="m-auto max-w-5xl px-6">
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="text-3xl font-semibold md:text-4xl mb-6">
-                Pronto para automatizar seu negócio?
+                Ready to get started?
               </h2>
               <p className="text-muted-foreground text-lg mb-10">
-                Entre em contato e descubra como a AG LABS pode transformar seus processos com inteligência artificial sob medida.
+                Officiis laudantium excepturi ducimus rerum dignissimos and tempora nam vitae excepturi ducimus iste provident.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button
                   size="lg"
                   asChild
-                  data-testid="button-contact-whatsapp"
+                  data-testid="button-contact-primary"
                 >
-                  <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+                  <a href="#">
                     <MessageSquare className="w-4 h-4 mr-2" />
-                    Falar no WhatsApp
+                    Get in touch
                   </a>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   asChild
-                  data-testid="button-contact-email"
+                  data-testid="button-contact-secondary"
                 >
-                  <a href="mailto:contato@aglabs.ai">
+                  <a href="#">
                     <HeadphonesIcon className="w-4 h-4 mr-2" />
-                    Enviar email
+                    View docs
                   </a>
                 </Button>
               </div>
@@ -481,7 +481,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <Logo />
               <p className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} AG LABS. Todos os direitos reservados.
+                © {new Date().getFullYear()} Your Brand. All rights reserved.
               </p>
               <nav className="flex items-center gap-6 text-sm text-muted-foreground">
                 {menuItems.map((item, i) => (
